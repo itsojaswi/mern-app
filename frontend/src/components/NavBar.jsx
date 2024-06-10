@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -31,13 +31,10 @@ const NavBar = () => {
   const drawerContent = (
     <List onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
       <ListItem button>
-        <ListItemText primary="Home" />
+        <ListItemText primary={<Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Home</Link>} />
       </ListItem>
       <ListItem button>
-        <ListItemText primary="About" />
-      </ListItem>
-      <ListItem button>
-        <ListItemText primary="Contact" />
+        <ListItemText primary={<Link to="/workouts" style={{ textDecoration: 'none', color: 'inherit' }}>Workouts</Link>} />
       </ListItem>
     </List>
   );
@@ -46,9 +43,9 @@ const NavBar = () => {
     <div>
       <AppBar
         position="static"
-        sx={{ backgroundColor: "#696969", padding: "10px" }}
+        sx={{ backgroundColor: "#696969", padding: "10px", height: "90px" }}
       >
-        <Toolbar>
+        <Toolbar >
           {isMobile && (
             <IconButton
               edge="start"
@@ -60,34 +57,41 @@ const NavBar = () => {
               <MenuIcon />
             </IconButton>
           )}
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1, fontWeight: "bold", color: "#DCDCDC"}}>
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ flexGrow: 1, fontWeight: "bold", color: "#DCDCDC", fontSize: "30px" }}
+          >
             FitnessApp
           </Typography>
           {!isMobile && (
-            <Box>
-              <Button
-                color="inherit"
+            <Box sx={{ display: "flex" }}>
+              <Typography
+                variant="h6"
+                component="div"
                 sx={{
-
+                  fontWeight: "bold",
                   color: '#DCDCDC',
                   mx: 2,
-                  backgroundColor: "#696969",
-                  "&:hover": { backgroundColor: "#696969" },
+                  fontSize: "20px",
+                  cursor: "pointer",
                 }}
               >
-                Home
-              </Button>
-              <Button
-                color="inherit"
+                <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Home</Link>
+              </Typography>
+              <Typography
+                variant="h6"
+                component="div"
                 sx={{
+                  fontWeight: "bold",
                   color: '#DCDCDC',
                   mx: 2,
-                  backgroundColor: "#696969",
-                  "&:hover": { backgroundColor: "#696969" },
+                  fontSize: "20px",
+                  cursor: "pointer",
                 }}
               >
-                Workouts
-              </Button>
+                <Link to="/workouts" style={{ textDecoration: 'none', color: 'inherit' }}>Workouts</Link>
+              </Typography>
             </Box>
           )}
         </Toolbar>

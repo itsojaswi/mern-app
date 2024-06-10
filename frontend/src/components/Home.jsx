@@ -68,6 +68,7 @@ const Home = () => {
           fontWeight: "bold",
           fontSize: { xs: "1.5rem", sm: "1.8rem", md: "3rem" },
           fontFamily: '"Oswald", sans-serif',
+          gap: "0"
         }}
       >
         Fitness should be 
