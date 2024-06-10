@@ -60,7 +60,7 @@ const NavBar = () => {
           <Typography
             variant="h5"
             component="div"
-            sx={{ flexGrow: 1, fontWeight: "bold", color: "#DCDCDC", fontSize: "30px" }}
+            sx={{ flexGrow: 1, fontWeight: "bold", color: "#DCDCDC", fontSize: "30px", cursor: "pointer",}}
           >
             FitnessApp
           </Typography>
@@ -70,7 +70,6 @@ const NavBar = () => {
                 variant="h6"
                 component="div"
                 sx={{
-                  fontWeight: "bold",
                   color: '#DCDCDC',
                   mx: 2,
                   fontSize: "20px",
@@ -83,7 +82,6 @@ const NavBar = () => {
                 variant="h6"
                 component="div"
                 sx={{
-                  fontWeight: "bold",
                   color: '#DCDCDC',
                   mx: 2,
                   fontSize: "20px",

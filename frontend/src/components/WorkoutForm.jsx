@@ -25,7 +25,6 @@ const WorkoutForm = () => {
     try {
       const response = await axios.post('http://localhost:4000/api/workouts', formData);
       console.log(response.data);
-      // Reset form fields after successful submission
       setFormData({
         title: '',
         reps: '',
@@ -44,6 +43,8 @@ const WorkoutForm = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          width: "400px",
+          marginLeft: 10
         }}
       >
         <form onSubmit={handleSubmit}>
@@ -83,8 +84,14 @@ const WorkoutForm = () => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{
+              marginTop: 2,
+              background: "brown",
+              ':hover': {
+                backgroundColor: 'brown',
+              }
+            }}
+          
           >
             Create Workout
           </Button>
