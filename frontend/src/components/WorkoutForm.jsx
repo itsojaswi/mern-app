@@ -30,6 +30,7 @@ const WorkoutForm = () => {
         reps: '',
         load: '',
       });
+      window.location.reload();
     } catch (error) {
       console.error('Error submitting form:', error);
     }
