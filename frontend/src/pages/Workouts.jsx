@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import WorkoutForm from "../components/WorkoutForm";
-import WorkoutList from "../components/WorkoutList";
-import axios from "axios";
+import { Container, Grid } from '@mui/material';
 import NavBar from '../components/NavBar';
-import { Grid, Container } from '@mui/material';
+import WorkoutForm from '../components/WorkoutForm';
+import WorkoutList from '../components/WorkoutList';
+import useWorkouts from '../hooks/useWorkouts'; 
 
 const Workouts = () => {
-  // Setting states for workouts
-  const [workouts, setWorkouts] = useState([]);
-
-  // Fetching workouts
-  useEffect(() => {
-    axios.get("api/workouts")
-      .then(response => setWorkouts(response.data))
-      .catch(error => console.log("error fetching the data"));
-  }, []);
+  const { workouts } = useWorkouts();
 
   return (
     <div>

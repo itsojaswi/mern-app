@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import { Typography, IconButton, Grid, Dialog, DialogTitle, DialogContent, TextField, Button, DialogActions } from '@mui/material';
@@ -37,9 +37,16 @@ const WorkoutList = () => {
     setOpen(true);
   };
 
-  const handleUpdate = async (event) => {
-    event.preventDefault();
-    console.log('Updating workout with ID:', editingWorkout._id); // Log the workout ID
+  const handleUpdate = async () => {
+    console.log('Updating workout with ID:', editingWorkout._id);
+
+    try {
+      const name = await axios.patch(`http://localhost:4000/api/workouts/${editingWorkout._id}`, editingWorkout);
+      console.log(name);
+      
+    }  catch (error) {
+      console.log(error)
+    }
   };
 
   const handleChange = (e) => {

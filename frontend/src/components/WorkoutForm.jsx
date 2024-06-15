@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -20,8 +20,7 @@ const WorkoutForm = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
       const response = await axios.post('http://localhost:4000/api/workouts', formData);
       console.log(response.data);
@@ -30,7 +29,6 @@ const WorkoutForm = () => {
         reps: '',
         load: '',
       });
-      window.location.reload();
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -86,6 +84,7 @@ const WorkoutForm = () => {
             fullWidth
             variant="contained"
             sx={{
+              height: "40px",
               marginTop: 2,
               background: "brown",
               ':hover': {

@@ -58,7 +58,7 @@ const updateWorkout = async (req, res) => {
   try {
     const workout = await Workout.findByIdAndUpdate(
       id,
-      { title, load, reps },
+      { ...req.body },
       { new: true, runValidators: true }
     );
 
