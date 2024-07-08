@@ -82,8 +82,6 @@ const Home = () => {
       color="primary"
       sx={{
         borderRadius: 20,
-        // height: 50,
-        // width: 200,
         padding: "10px 50px",
         fontSize: "1.2rem",
         fontWeight: "bold",
